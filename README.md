@@ -1,5 +1,9 @@
 # Effect RPC & SQL Bug
 
+There is some strange bug with connecting to the SQL layer when using the `toWebHandler` function and RPC router.
+
+## Web Handler
+
 To reproduce:
 
 1. install `pnpm install`
@@ -37,6 +41,28 @@ curl -X POST http://localhost:3000/api/rpc \
      -d '[
            {
              "request": { "_tag": "PersonListRaw" },
+             "traceId": "traceId",
+             "spanId": "spanId",
+             "sampled": true,
+             "headers": {}
+           }
+         ]'
+```
+
+## Server
+
+Works fine when using a normal http server.
+
+```bash
+pnpx tsx server.ts
+```
+
+```bash
+curl -X POST http://localhost:3000/api/rpc \
+     -H "Content-Type: application/json" \
+     -d '[
+           {
+             "request": { "_tag": "PersonList" },
              "traceId": "traceId",
              "spanId": "spanId",
              "sampled": true,
