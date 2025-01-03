@@ -6,11 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "ts-node src/lib/db.ts"
   },
   "dependencies": {
-    "@effect/platform": "^0.72.0",
+    "@effect/platform": "~0.69.0",
     "@effect/platform-node": "^0.68.0",
+    "@effect/sql": "^0.25.0",
+    "@effect/sql-pg": "^0.26.0",
     "effect": "^3.12.0",
     "next": "15.1.2",
     "react": "^19.0.0",
