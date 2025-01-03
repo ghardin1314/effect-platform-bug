@@ -42,6 +42,31 @@ const PersonListRawProc = Rpc.effect(PersonListRaw, () =>
   }).pipe(Effect.catchAll(Effect.die))
 );
 
-export const rpcRouter = RpcRouter.make(PersonListProc, PersonListRawProc);
+export class DeletePeople extends Schema.TaggedRequest<DeletePeople>()(
+  "DeletePeople",
+  {
+    failure: Schema.Never,
+    success: Schema.Any,
+    payload: {},
+  }
+) {}
+
+const DeletePeopleProc = Rpc.effect(DeletePeople, () =>
+  Effect.gen(function* () {
+    const sql = yield* SqlClient.SqlClient;
+
+    console.log("Deleting people");
+
+    yield* sql`DELETE FROM people`;
+
+    return {};
+  }).pipe(Effect.catchAll(Effect.die))
+);
+
+export const rpcRouter = RpcRouter.make(
+  PersonListProc,
+  PersonListRawProc,
+  DeletePeopleProc
+);
 
 export const rpcRoute = HttpRpcRouter.toHttpApp(rpcRouter);
