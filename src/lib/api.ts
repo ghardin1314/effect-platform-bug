@@ -1,12 +1,9 @@
 import { HttpApp, HttpRouter, HttpServerResponse } from "@effect/platform";
 import { SqlClient } from "@effect/sql";
-import * as PgDrizzle from "@effect/sql-drizzle/Pg";
-import { Effect, Layer } from "effect";
-import { SqlLive } from "./db";
+import { Effect } from "effect";
+import { LayerLive } from "./db";
 import { getPeople } from "./drizzle";
 import { rpcRoute } from "./rpc";
-
-const LayerLive = Layer.provideMerge(PgDrizzle.layer, SqlLive);
 
 // Define the router with some routes
 const router = HttpRouter.empty.pipe(
