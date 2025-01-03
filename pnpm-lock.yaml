@@ -14,12 +14,24 @@ importers:
       '@effect/platform-node':
         specifier: ^0.68.0
         version: 0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)
+      '@effect/rpc':
+        specifier: ^0.47.0
+        version: 0.47.0(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)
+      '@effect/rpc-http':
+        specifier: ^0.45.0
+        version: 0.45.0(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)
       '@effect/sql':
         specifier: ^0.25.0
         version: 0.25.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)
+      '@effect/sql-drizzle':
+        specifier: ^0.24.0
+        version: 0.24.0(@effect/sql@0.25.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(drizzle-orm@0.38.3(@types/react@19.0.7)(postgres@3.4.5)(react@19.0.0))(effect@3.12.5)
       '@effect/sql-pg':
         specifier: ^0.26.0
         version: 0.26.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(@effect/sql@0.25.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(effect@3.12.5)
+      drizzle-orm:
+        specifier: ^0.38.3
+        version: 0.38.3(@types/react@19.0.7)(postgres@3.4.5)(react@19.0.0)
       effect:
         specifier: ^3.12.0
         version: 3.12.5
@@ -102,6 +114,25 @@ packages:
     resolution: {integrity: sha512-a4JQHieGF/kxH8ZSfEpVrxbdX9haAKFyoOQT5tXiiWoXSgvm+iQ/41FhXqwkWeMddh0hbYJmvmkEljcXUuxWcQ==}
     peerDependencies:
       effect: ^3.10.19
+
+  '@effect/rpc-http@0.45.0':
+    resolution: {integrity: sha512-EGX5j/mdj5s+3sYuVa2hWLzn1569hOLKn/tybKr7M7FbHk35wlgFW7NJr8BcCw9Gbn8F+ViL2gqOg/TMcXVpow==}
+    peerDependencies:
+      '@effect/platform': ^0.72.0
+      effect: ^3.12.0
+
+  '@effect/rpc@0.47.0':
+    resolution: {integrity: sha512-4wrWACZsL5k3b9bUs4tLZF+87+sX0ItnOTViXLaXzUVuM7LNlfnPO7mUXNBP41ybHXb1U3eSDol3zzBBPldWwA==}
+    peerDependencies:
+      '@effect/platform': ^0.72.0
+      effect: ^3.12.0
+
+  '@effect/sql-drizzle@0.24.0':
+    resolution: {integrity: sha512-gX2LHuSsUOqlTDsgvTW3+d4POUdiIxsND8YYIyrKmfUL6LRfTLhRQqq5T4i8FkmxL61H4xu/vxpIwS1JwyrjQQ==}
+    peerDependencies:
+      '@effect/sql': ^0.25.0
+      drizzle-orm: ^0.31
+      effect: ^3.12.0
 
   '@effect/sql-pg@0.26.0':
     resolution: {integrity: sha512-y2pIkcSHSe3/4LSzXOanij8pmZPxP6xedVSfVUohGW0bS4HxFtslQaf1hju5HAtAtUkkFJLNIsgCHiM6hSs0Yg==}
@@ -813,6 +844,98 @@ packages:
   doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
+
+  drizzle-orm@0.38.3:
+    resolution: {integrity: sha512-w41Y+PquMpSff/QDRGdItG0/aWca+/J3Sda9PPGkTxBtjWQvgU1jxlFBXdjog5tYvTu58uvi3PwR1NuCx0KeZg==}
+    peerDependencies:
+      '@aws-sdk/client-rds-data': '>=3'
+      '@cloudflare/workers-types': '>=4'
+      '@electric-sql/pglite': '>=0.2.0'
+      '@libsql/client': '>=0.10.0'
+      '@libsql/client-wasm': '>=0.10.0'
+      '@neondatabase/serverless': '>=0.10.0'
+      '@op-engineering/op-sqlite': '>=2'
+      '@opentelemetry/api': ^1.4.1
+      '@planetscale/database': '>=1'
+      '@prisma/client': '*'
+      '@tidbcloud/serverless': '*'
+      '@types/better-sqlite3': '*'
+      '@types/pg': '*'
+      '@types/react': '>=18'
+      '@types/sql.js': '*'
+      '@vercel/postgres': '>=0.8.0'
+      '@xata.io/client': '*'
+      better-sqlite3: '>=7'
+      bun-types: '*'
+      expo-sqlite: '>=14.0.0'
+      knex: '*'
+      kysely: '*'
+      mysql2: '>=2'
+      pg: '>=8'
+      postgres: '>=3'
+      prisma: '*'
+      react: '>=18'
+      sql.js: '>=1'
+      sqlite3: '>=5'
+    peerDependenciesMeta:
+      '@aws-sdk/client-rds-data':
+        optional: true
+      '@cloudflare/workers-types':
+        optional: true
+      '@electric-sql/pglite':
+        optional: true
+      '@libsql/client':
+        optional: true
+      '@libsql/client-wasm':
+        optional: true
+      '@neondatabase/serverless':
+        optional: true
+      '@op-engineering/op-sqlite':
+        optional: true
+      '@opentelemetry/api':
+        optional: true
+      '@planetscale/database':
+        optional: true
+      '@prisma/client':
+        optional: true
+      '@tidbcloud/serverless':
+        optional: true
+      '@types/better-sqlite3':
+        optional: true
+      '@types/pg':
+        optional: true
+      '@types/react':
+        optional: true
+      '@types/sql.js':
+        optional: true
+      '@vercel/postgres':
+        optional: true
+      '@xata.io/client':
+        optional: true
+      better-sqlite3:
+        optional: true
+      bun-types:
+        optional: true
+      expo-sqlite:
+        optional: true
+      knex:
+        optional: true
+      kysely:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      postgres:
+        optional: true
+      prisma:
+        optional: true
+      react:
+        optional: true
+      sql.js:
+        optional: true
+      sqlite3:
+        optional: true
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -1951,6 +2074,23 @@ snapshots:
       find-my-way-ts: 0.1.5
       multipasta: 0.2.5
 
+  '@effect/rpc-http@0.45.0(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)':
+    dependencies:
+      '@effect/platform': 0.69.31(effect@3.12.5)
+      '@effect/rpc': 0.47.0(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)
+      effect: 3.12.5
+
+  '@effect/rpc@0.47.0(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)':
+    dependencies:
+      '@effect/platform': 0.69.31(effect@3.12.5)
+      effect: 3.12.5
+
+  '@effect/sql-drizzle@0.24.0(@effect/sql@0.25.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(drizzle-orm@0.38.3(@types/react@19.0.7)(postgres@3.4.5)(react@19.0.0))(effect@3.12.5)':
+    dependencies:
+      '@effect/sql': 0.25.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)
+      drizzle-orm: 0.38.3(@types/react@19.0.7)(postgres@3.4.5)(react@19.0.0)
+      effect: 3.12.5
+
   '@effect/sql-pg@0.26.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(@effect/sql@0.25.0(@effect/experimental@0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(effect@3.12.5)':
     dependencies:
       '@effect/experimental': 0.36.0(@effect/platform-node@0.68.2(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5))(@effect/platform@0.69.31(effect@3.12.5))(effect@3.12.5)(ws@8.18.0)
@@ -2619,6 +2759,12 @@ snapshots:
   doctrine@2.1.0:
     dependencies:
       esutils: 2.0.3
+
+  drizzle-orm@0.38.3(@types/react@19.0.7)(postgres@3.4.5)(react@19.0.0):
+    optionalDependencies:
+      '@types/react': 19.0.7
+      postgres: 3.4.5
+      react: 19.0.0
 
   dunder-proto@1.0.1:
     dependencies:
