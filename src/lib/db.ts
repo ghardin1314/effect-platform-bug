@@ -3,11 +3,11 @@ import { PgClient } from "@effect/sql-pg";
 import { Layer, Redacted } from "effect";
 
 export const SqlLive = PgClient.layer({
-  username: "myuser",
-  password: Redacted.make("mypassword"),
+  username: "postgres",
+  password: Redacted.make("postgrespassword"),
   host: "localhost",
   port: 5433,
-  database: "myapp",
+  database: "mydatabase",
 });
 
 export const LayerLive = Layer.provideMerge(PgDrizzle.layer, SqlLive);

@@ -31,6 +31,19 @@ const router = HttpRouter.empty.pipe(
 
 // Convert the router to a web handler
 // const handler: (request: Request) => Promise<Response>
-export const handler = HttpApp.toWebHandler(
-  router.pipe(Effect.provide(LayerLive))
-);
+const {handler: effectHandler, close} = HttpApp.toWebHandlerLayer(router, LayerLive);
+
+process.on("SIGINT", () => {
+  close().then(() => {
+    process.exit(0);
+  })
+})
+process.on("SIGTERM", () => {
+  close().then(() => {
+    process.exit(0);
+  })
+})
+
+// to ensure the second argument is not used
+// Will be fixed in the next version of Effect
+export const handler = (request: Request) => effectHandler(request);
